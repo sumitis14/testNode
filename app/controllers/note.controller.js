@@ -1,12 +1,16 @@
 const Note = require('../models/note.model.js');
+var logg = require('../../log/note.logger.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
+    
      // Validate request
      if(!req.body.content) {
+        logg.info("Content not found");
         return res.status(400).send({
             message: "Note content can not be empty"
-        });
+        }
+        );
     }
 
     // Create a Note
