@@ -36,6 +36,10 @@ app.get('/', (req, res) => {
 // Require Notes routes
 require('./app/routes/note.routes.js')(app);
 
+var logger = require('./log/note.logger.js');
+
+logger.info('logging to file');
+
 // listen for requests
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
